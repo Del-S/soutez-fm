@@ -1,0 +1,74 @@
+/*
+Theme Name: Soutěž FraisMonde
+Theme URI: #
+Version: 0.1
+Description: Soutěžní stránka.
+Author: Elnino.cz
+Author URI: #
+Template: divi
+*/
+
+@import url("../divi/style.css");
+
+@font-face{
+    font-family: "Questa Sans Regular";
+    src: url('./fonts/questa-r/2-Questa_Regular-webfont.ttf'),
+    url('./fonts/questa-r/2-Questa_Regular-webfont.eot'); /* IE */
+}
+
+/* Variables */
+
+@basic-color: #7cc68d;
+@border-color: #296d38;
+@input-border-color: #9cc79a;
+@input-background-color: #f0f7da;
+@input-back-focus-color: #e2f0b9;
+@input-shadow-color: rgba(41,109,56,0.75);
+@input-text-color: #9fa198;
+@button-color: #48985a;
+@default-appearance: none;
+
+/* Mixins */
+.InputShadows{
+    -webkit-box-shadow: 0px 0px 1px 0px @input-shadow-color; 
+       -moz-box-shadow: 0px 0px 1px 0px @input-shadow-color; 
+            box-shadow: 0px 0px 1px 0px @input-shadow-color;
+}
+
+.Appearance(@appearance:@default-appearance){
+    -webkit-appearance:@appearance;
+       -moz-appearance:@appearance;
+            appearance:@appearance;
+}
+
+/* Fonts */
+h1 { font-size: 40px; }
+.et-fixed-header h1 { font-size: 32px; }
+
+.mlw_qmn_quiz { font-size: 16px; 
+    .mlw_qmn_message_before { font-size: 20px; }
+}
+
+/* Header */
+.menu-right-container { padding: 20px 0; float: right;
+    h1 { color: @basic-color; font-family: "Questa Sans Regular", "Open Sans", Arial, sans-serif;  padding-bottom: 0; -moz-transition: all 0.4s ease-in-out; -webkit-transition: all 0.4s ease-in-out; transition: all 0.4s ease-in-out; }
+}
+
+/* Content */
+.mlw_qmn_quiz { background-color: @basic-color; border-bottom: 2px solid @border-color; color: white; padding: 20px;
+    br { display: none; }
+    .quiz_section {
+        span { display: block; }
+        input[type='text'], textarea { color: @input-text-color; background-color: @input-background-color; border: 1px solid @input-border-color; font-size: 14px; max-width: 345px; padding: 7px; .InputShadows; }
+        input:not([type='submit']):focus, textarea:focus { background-color: @input-back-focus-color; }
+        input[type='text'] { width: 100%; }
+        
+        input[type="checkbox"] { background-color: @input-background-color; border: 1px solid @input-border-color; height: 18px; width: 18px; .Appearance(); .InputShadows; }
+        input[type="checkbox"]:checked { background: @input-background-color url('./images/checker.png') 2px 3px no-repeat; }
+        
+        input[type="submit"] { background-color: @button-color; border: none; border-bottom: 2px solid @border-color; color: white; display: block; font-size: 16px; font-weight: bold; margin: 0 auto; padding: 8px; }
+        
+        #mlwAcceptance { float: left; margin: 3px 10px 3px 0; }
+        label[for='mlwAcceptance'] { font-size: 13px; }
+    }
+}
